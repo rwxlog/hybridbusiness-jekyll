@@ -1,0 +1,78 @@
+---
+layout: default
+---
+<main class="container main">
+
+  <!-- Faith section -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Faith</h2>
+      <a class="view-all" href="/categories/faith/">View all →</a>
+    </div>
+
+    <div class="post-grid" id="faith-posts">
+      {% assign faith_posts = site.posts | where_exp: "post", "post.categories contains 'faith'" | slice: 0,3 %}
+      {% for post in faith_posts %}
+      <article class="card">
+        <h2 class="card-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="meta">{{ post.date | date: "%b %-d, %Y" }} · 
+          {% assign words = post.content | number_of_words %}
+          {% assign reading_time = words | divided_by:200 | ceil %}
+          {{ reading_time }} min read
+        </p>
+        <p class="excerpt">{{ post.short_summary }}</p>
+        <a class="read-more" href="{{ post.url }}">Read more →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Social section -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Social</h2>
+      <a class="view-all" href="/categories/social/">View all →</a>
+    </div>
+
+    <div class="post-grid" id="social-posts">
+      {% assign social_posts = site.posts | where_exp: "post", "post.categories contains 'social'" | slice: 0,3 %}
+      {% for post in social_posts %}
+      <article class="card">
+        <h2 class="card-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="meta">{{ post.date | date: "%b %-d, %Y" }} · 
+          {% assign words = post.content | number_of_words %}
+          {% assign reading_time = words | divided_by:200 | ceil %}
+          {{ reading_time }} min read
+        </p>
+        <p class="excerpt">{{ post.short_summary }}</p>
+        <a class="read-more" href="{{ post.url }}">Read more →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Worldview section -->
+  <section class="home-section">
+    <div class="section-head">
+      <h2>Worldview</h2>
+      <a class="view-all" href="/categories/worldview/">View all →</a>
+    </div>
+
+    <div class="post-grid" id="worldview-posts">
+      {% assign worldview_posts = site.posts | where_exp: "post", "post.categories contains 'worldview'" | slice: 0,3 %}
+      {% for post in worldview_posts %}
+      <article class="card">
+        <h2 class="card-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="meta">{{ post.date | date: "%b %-d, %Y" }} · 
+          {% assign words = post.content | number_of_words %}
+          {% assign reading_time = words | divided_by:200 | ceil %}
+          {{ reading_time }} min read
+        </p>
+        <p class="excerpt">{{ post.short_summary }}</p>
+        <a class="read-more" href="{{ post.url }}">Read more →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
