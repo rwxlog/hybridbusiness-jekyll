@@ -1,33 +1,27 @@
 ---
 layout: default
 ---
-<main class="container main single-post">
-  <article>
-    <h1>{{ page.title }}</h1>
-    <p class="meta">
-      {{ page.date | date: "%b %-d, %Y" }} · 
-      {% assign words = page.content | number_of_words %}
-      {% assign reading_time = words | divided_by:200 | ceil %}
-      {{ reading_time }} min read
-    </p>
 
-    <div class="content">
-      {{ content }}
-    </div>
+<article class="single-post">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">{{ page.date | date: "%b %-d, %Y" }}</p>
 
-    <!-- Navigation -->
-    <nav class="post-nav">
-      {% if page.previous %}
-        <a class="prev" href="{{ page.previous.url }}">← Previous</a>
-      {% endif %}
+  {% if page.image %}
+    <img src="{{ page.image | relative_url }}" alt="" style="width:100%;max-height:360px;object-fit:cover;margin-bottom:12px;">
+  {% endif %}
 
-      <a class="home" href="/posts/">All posts</a>
+  <div class="content">
+    {{ content }}
+  </div>
+</article>
 
-      {% if page.next %}
-        <a class="next" href="{{ page.next.url }}">Next →</a>
-      {% endif %}
-    </nav>
+<nav class="post-nav">
+  {% if page.previous.url %}
+    <a href="{{ page.previous.url | relative_url }}">&larr; Previous</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a href="{{ page.next.url | relative_url }}">Next &rarr;</a>
+  {% endif %}
+</nav>
 
-    <p><a href="#top" class="back-to-top">Back to top</a></p>
-  </article>
-</main>
+<a href="#top" class="back-to-top">Back to top ↑</a>

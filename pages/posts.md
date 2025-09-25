@@ -1,5 +1,6 @@
 ---
-layout: posts
-title: "All Posts"
+layout: list
+title: "My Posts"
 permalink: /posts/
+collection: posts
 ---

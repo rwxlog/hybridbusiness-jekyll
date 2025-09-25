@@ -1,12 +1,17 @@
-<header id="header" class="site-header">
+<header class="site-header">
   <div class="container header-inner">
-    <div class="brand">Simple Blog</div>
+    <!-- Site title / logo -->
+    <a class="brand" href="{{ '/' | relative_url }}">Hybrid Business</a>
+    <!-- Navigation -->
     <nav class="nav">
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
       <ul class="nav-list">
-        <li><a href="{{ "/" | relative_url }}">Home</a></li>
-        <li><a href="{{ "/posts/" | relative_url }}">Posts</a></li>
-        <li><a href="{{ "/about/" | relative_url }}">About</a></li>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/courses' | relative_url }}">Courses</a></li>
+        <li><a href="{{ '/services' | relative_url }}">Services</a></li>
+        <li><a href="{{ '/posts' | relative_url }}">Posts</a></li>
+        <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+        <li><a href="{{ '/about' | relative_url }}">About</a></li>
       </ul>
     </nav>
   </div>

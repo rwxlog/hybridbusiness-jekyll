@@ -1,16 +1,27 @@
-// js/main.js
-document.addEventListener('DOMContentLoaded', function(){
+// main.js - hamburger menu toggle + back-to-top smooth scroll
+document.addEventListener('DOMContentLoaded', function () {
+  // Hamburger menu
   const btn = document.querySelector('.hamburger');
-  const navList = document.querySelector('.nav-list');
-  if(btn && navList){
+  const nav = document.querySelector('.nav-list');
+
+  if (btn && nav) {
     btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      navList.classList.toggle('show');
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    // close menu on link click (mobile)
-    navList.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=> navList.classList.remove('show'));
-    });
+
+    // Close nav on link click (mobile)
+    nav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => nav.classList.remove('open'))
+    );
   }
+
+  // Back to top links: smooth scroll
+  document.body.addEventListener('click', function (e) {
+    const el = e.target;
+    if (el.tagName === 'A' && el.getAttribute('href') === '#top') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
 });
